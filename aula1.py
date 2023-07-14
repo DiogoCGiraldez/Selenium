@@ -25,7 +25,11 @@ gg = Firefox()
 g = Google(gg)
 pagina =g.navigate()
 sleep(2)
-gg.find_element(By.ID,'ancora').click()
-p = gg.find_element(By.TAG_NAME,'p')
 
-pprint(p.text)
+for click in range(10):
+    p = gg.find_elements(By.TAG_NAME,'p')
+    a = gg.find_element(By.ID,'ancora').click()
+    pprint(f'valor de p ={p[-1].text} e valor do click={click}')
+    pprint(f'Os valore são Iguais: {p[-1].text == str(click)}')
+
+
